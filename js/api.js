@@ -11,7 +11,11 @@ const getTemperature = () => {
 const getData = (location, data) => {
     console.log(data);
     setInnerText('city', data.name);
-    setInnerText('temperature', data.main.temp)
+    setInnerText('temperature', data.main.temp);
+    setInnerText('weather', data.weather[0].main);
+    const iconImage = document.getElementById('weather-icon');
+    const url = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+    iconImage.setAttribute('src', url);
 }
 
 const setInnerText = (id, value) => {
